@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semcache"
+version = "0.1.0"
+description = "Semantic caching layer for LLM APIs — cut spend on repetitive prompts."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.115", "uvicorn[standard]>=0.34", "httpx>=0.28",
+    "pydantic>=2.10", "pydantic-settings>=2.7", "typer>=0.15", "rich>=13",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3"]
+
+[project.scripts]
+semcache = "semcache.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,9 @@
+services:
+  semcache:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SEMCACHE_UPSTREAM_URL: https://api.anthropic.com/v1/messages
+      SEMCACHE_SIMILARITY_THRESHOLD: "0.8"   # raise to ~0.92 when using real embeddings
+      SEMCACHE_TTL_SECONDS: "3600"
